@@ -7,7 +7,7 @@ RUN apt-get update &&\
         apt-get -y -q install gcc make wget && \
         apt-get clean && \
         rm -rf /var/cache/apt/* /var/lib/apt/lists/* && \
-        wget http://www.softether-download.com/files/softether/${VERSION}-tree/Linux/SoftEther_VPN_Server/32bit_-_ARM_legacy_ABI/softether-vpnserver-${VERSION}-linux-arm-32bit.tar.gz -O /tmp/softether-vpnserver.tar.gz &&\
+        wget http://www.softether-download.com/files/softether/${VERSION}-tree/Linux/SoftEther_VPN_Server/32bit_-_ARM_EABI/softether-vpnserver-${VERSION}-linux-arm_eabi-32bit.tar.gz -O /tmp/softether-vpnserver.tar.gz &&\
         tar -xzvf /tmp/softether-vpnserver.tar.gz -C /usr/local/ &&\
         rm /tmp/softether-vpnserver.tar.gz &&\
         cd /usr/local/vpnserver &&\
@@ -22,4 +22,4 @@ WORKDIR /usr/local/vpnserver
 
 EXPOSE 443/tcp 992/tcp 1194/tcp 1194/udp 5555/tcp 500/udp 4500/udp
 
-ENTRYPOINT ["/usr/local/vpnserver/runner.sh"]
+CMD ["/usr/local/vpnserver/runner.sh"]
