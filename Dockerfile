@@ -11,8 +11,8 @@ RUN apt-get update &&\
         tar -xzvf /tmp/softether-vpnserver.tar.gz -C /usr/local/ &&\
         rm /tmp/softether-vpnserver.tar.gz &&\
         cd /usr/local/vpnserver &&\
-        chmod 600 * && chmod 700 vpnserver && chmod 700 vpncmd &&\
         make i_read_and_agree_the_license_agreement &&\
+        chmod 600 * && chmod 700 vpnserver && chmod 700 vpncmd &&\
         apt-get purge -y -q --auto-remove gcc make wget
 
 ADD runner.sh /usr/local/vpnserver/runner.sh
